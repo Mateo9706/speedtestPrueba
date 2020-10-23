@@ -1,7 +1,7 @@
 Flask==1.1.1
 requests==2.24.0
-speedtest-cli==2.1.2
-sockets==1.0.0
+
+
 
 
 
