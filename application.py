@@ -40,7 +40,7 @@ def hello_world():
     download = round(res["download"] / (10 ** 8), 2)
     upload = round(res["upload"] / (10 ** 8), 2)
     """
-    return convert
+    return "yaa"
     #otro()
 
     #c=prueba()
