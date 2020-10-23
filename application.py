@@ -16,10 +16,10 @@ def hello_world():
     convert = client_ip.split(":")
     #print(convert)
     print(client_ip)
-    #response = requests.get(url+client_ip+endpoint)
-    #print(response.text)
+    response = requests.get(url+convert[0]+endpoint)
+    print(response.text)
     #otro()
-    return "ip " + convert[0]
+    return response.text
 
 
 if __name__ == '__main__':
