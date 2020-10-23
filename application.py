@@ -17,10 +17,10 @@ def hello_world():
     convert = client_ip.split(":")
     #print(convert)
     print(client_ip)
-    response = requests.get(url+convert[0]+endpoint)
-    print(response.text)
+    #response = requests.get(url+client_ip+endpoint)
+    #print(response.text)
 
-    source = convert
+    source = "0.0.0.0"
     s = speedtest.Speedtest(source_address=source)
     # s = Speedtest()
     # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
@@ -35,7 +35,7 @@ def hello_world():
     print(res["download"], res["upload"], res["ping"])
 
     #otro()
-    return response.text + "</br></br>" +  res["download"], res["upload"], res["ping"]
+    return "</br></br>" +  str(res["download"]) + " " +  str(res["upload"]) + " "+ str(res["ping"])
 
 def SpeedTest():
     #espera()
@@ -52,7 +52,9 @@ def SpeedTest():
     s.upload()
     res = s.results.dict()
     print(res["download"], res["upload"], res["ping"])
-    return res["download"], res["upload"], res["ping"]
+    download = round(res["download"] / (10 ** 8), 2)
+    upload = round(res["upload"] / (10 ** 8), 2)
+    return str(download) + " " + str(upload)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
