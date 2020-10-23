@@ -12,13 +12,13 @@ url2 = "https://librespeed.org/"
 def hello_world():
     endpoint = "/json"
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
-    #prt = client_ip.split("6")
-    #print(prt)
+    convert = client_ip.split(":")
+    print(convert)
     print(client_ip)
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
     #otro()
-    return "ya"
+    return "ip " + client_ip + "ip convert " + convert
 
 
 if __name__ == '__main__':
