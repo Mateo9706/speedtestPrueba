@@ -15,10 +15,10 @@ def hello_world():
     endpoint = "/json"
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
     print(client_ip)
-    response = requests.get(url+client_ip+endpoint)
-    print(response.text)
+    #response = requests.get(url+client_ip+endpoint)
+    #print(response.text)
     #otro()
-    return "ya"+" "+response.text
+    return "ya"+" "+client_ip
 
 #def otro():
     #s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
