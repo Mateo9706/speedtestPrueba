@@ -20,7 +20,7 @@ def hello_world():
     convert = client_ip.split(":")
     print(convert)
     print(client_ip)
-    response = requests.get(url+client_ip+endpoint)
+    response = requests.get(url+convert+endpoint)
     print(response.text)
 
     """"
