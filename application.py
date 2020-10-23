@@ -1,4 +1,4 @@
-import socket
+#import socket
 
 #import speedtest
 from flask import Flask, request, render_template
@@ -45,6 +45,7 @@ def hello_world():
 
     #c=prueba()
     #return "prueba" + c
+"""
 def prueba():
     print("entraaa")
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -55,7 +56,8 @@ def prueba():
     clientIP = addr  # Aquí se guarda la IP del cliente
     print(clientIP)
     s.close()
-    return clientIP
+    return 
+"""
 
 
 #if __name__ == '__main__':
