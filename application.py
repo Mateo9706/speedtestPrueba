@@ -13,13 +13,13 @@ def hello_world():
     print("entra aca")
     endpoint = "/json"
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
-    #convert = client_ip.split(":")
+    convert = client_ip.split(":")
     #print(convert)
     print(client_ip)
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
     #otro()
-    return "ip " + client_ip
+    return "ip " + convert[0]
 
 
 if __name__ == '__main__':
