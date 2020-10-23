@@ -1,3 +1,5 @@
+import socket
+
 import speedtest
 from flask import Flask, request, render_template
 import requests
@@ -14,11 +16,20 @@ def hello_world():
     print("entra aca")
     endpoint = "/json"
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
-    convert = client_ip.split(":")
+    #convert = client_ip.split(":")
     #print(convert)
     print(client_ip)
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(("0.0.0.0", 8000))
+    s.listen(1)
+    # Estas son las variables del cliente
+    conn, addr = s.accept()
+    clientIP = addr  # Aquí se guarda la IP del cliente
+    print(clientIP)
+    s.close()
 
     source = "0.0.0.0"
     s = speedtest.Speedtest(source_address=source)
