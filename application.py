@@ -20,7 +20,7 @@ def hello_world():
 
 def otro():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind(('104.214.20.35', 8000))
+    s.bind(('0.0.0.0', 8000))
     s.listen(1)
     # Estas son las variables del cliente
     conn, addr = s.accept()
