@@ -13,6 +13,7 @@ url2 = "https://librespeed.org/"
 
 @app.route('/ip')
 def hello_world():
+    """
     print("entra aca")
     endpoint = "/json"
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
@@ -39,7 +40,9 @@ def hello_world():
     print(res["download"], res["upload"], res["ping"])
 
     #otro()
-    return "</br></br>" +  str(res["download"]) + " " +  str(res["upload"]) + " "+ str(res["ping"])
+    """
+    c=prueba()
+    return "prueba" + c
 def prueba():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind(("0.0.0.0", 8000))
@@ -49,6 +52,7 @@ def prueba():
     clientIP = addr  # Aquí se guarda la IP del cliente
     print(clientIP)
     s.close()
+    return clientIP
 
 def SpeedTest():
     #espera()
@@ -69,6 +73,6 @@ def SpeedTest():
     upload = round(res["upload"] / (10 ** 8), 2)
     return str(download) + " " + str(upload)
 
-if __name__ == '__main__':
-    prueba()
+#if __name__ == '__main__':
+    #prueba()
     #app.run(host='0.0.0.0')
