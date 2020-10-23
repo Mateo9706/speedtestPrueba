@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 url = "https://ipinfo.io/"
 
-@app.route('/')
+@app.route('/ip')
 def hello_world():
     response = requests.get(url)
     print(response.text)
