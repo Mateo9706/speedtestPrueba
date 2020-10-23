@@ -11,7 +11,7 @@ app = Flask(__name__)
 url = "https://ipinfo.io/"
 url2 = "https://librespeed.org/"
 
-@app.route('/')
+@app.route('/ip')
 def hello_world():
 
     print("entra aca")
@@ -23,8 +23,7 @@ def hello_world():
     response = requests.get(url+client_ip+endpoint)
     print(response.text)
 
-
-
+    """"
     source = "0.0.0.0"
     s = speedtest.Speedtest(source_address=source)
     # s = Speedtest()
@@ -40,7 +39,8 @@ def hello_world():
     print(res["download"], res["upload"], res["ping"])
     download = round(res["download"] / (10 ** 8), 2)
     upload = round(res["upload"] / (10 ** 8), 2)
-    return download+" "+upload
+    """
+    return convert
     #otro()
 
     #c=prueba()
