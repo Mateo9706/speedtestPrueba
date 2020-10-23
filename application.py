@@ -1,6 +1,7 @@
+import speedtest
 from flask import Flask, request, render_template
 import requests
-
+from speedtest import Speedtest
 
 app = Flask(__name__)
 
@@ -18,9 +19,40 @@ def hello_world():
     print(client_ip)
     response = requests.get(url+convert[0]+endpoint)
     print(response.text)
-    #otro()
-    return response.text
 
+    source = convert
+    s = speedtest.Speedtest(source_address=source)
+    # s = Speedtest()
+    # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
+
+    # s.get_servers()
+
+    # s.get_best_server()
+    # print(s.get_servers())
+    s.download()
+    s.upload()
+    res = s.results.dict()
+    print(res["download"], res["upload"], res["ping"])
+
+    #otro()
+    return response.text + "</br></br>" +  res["download"], res["upload"], res["ping"]
+
+def SpeedTest():
+    #espera()
+    source = "191.102.192.0"
+    s = speedtest.Speedtest(source_address=source)
+    #s = Speedtest()
+    #s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
+
+    #s.get_servers()
+
+    #s.get_best_server()
+    #print(s.get_servers())
+    s.download()
+    s.upload()
+    res = s.results.dict()
+    print(res["download"], res["upload"], res["ping"])
+    return res["download"], res["upload"], res["ping"]
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
