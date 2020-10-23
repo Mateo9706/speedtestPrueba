@@ -1,9 +1,9 @@
 import socket
 
-import speedtest
+#import speedtest
 from flask import Flask, request, render_template
 import requests
-from speedtest import Speedtest
+#from speedtest import Speedtest
 
 app = Flask(__name__)
 
