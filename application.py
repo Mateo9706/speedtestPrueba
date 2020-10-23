@@ -8,7 +8,7 @@ url = "https://ipinfo.io/"
 def hello_world():
     response = requests.get(url)
     print(response.text)
-    return 'Hello, World!'
+    return response.text
 
 #if __name__ == '__main__':
 #    app.run(host='0.0.0.0')
