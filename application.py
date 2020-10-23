@@ -14,12 +14,13 @@ url2 = "https://librespeed.org/"
 def hello_world():
     endpoint = "/json"
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
-    print(client_ip.split(":"))
+    prt = client_ip.split(":")
+    print(prt)
     print(client_ip)
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
     #otro()
-    return "ya"+" "+client_ip+" "+client_ip.split(":")
+    return "ya"+" "+client_ip+" "+prt
 
 #def otro():
     #s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
