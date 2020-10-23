@@ -22,14 +22,7 @@ def hello_world():
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
 
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind(("0.0.0.0", 7000))
-    s.listen(1)
-    # Estas son las variables del cliente
-    conn, addr = s.accept()
-    clientIP = addr  # Aquí se guarda la IP del cliente
-    print(clientIP)
-    s.close()
+
 
     source = "0.0.0.0"
     s = speedtest.Speedtest(source_address=source)
@@ -47,6 +40,15 @@ def hello_world():
 
     #otro()
     return "</br></br>" +  str(res["download"]) + " " +  str(res["upload"]) + " "+ str(res["ping"])
+def prueba():
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(("0.0.0.0", 8000))
+    s.listen(1)
+    # Estas son las variables del cliente
+    conn, addr = s.accept()
+    clientIP = addr  # Aquí se guarda la IP del cliente
+    print(clientIP)
+    s.close()
 
 def SpeedTest():
     #espera()
@@ -68,4 +70,5 @@ def SpeedTest():
     return str(download) + " " + str(upload)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    prueba()
+    #app.run(host='0.0.0.0')
