@@ -10,15 +10,16 @@ url2 = "https://librespeed.org/"
 
 @app.route('/ip')
 def hello_world():
+    print("entra aca")
     endpoint = "/json"
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
-    convert = client_ip.split(":")
-    print(convert)
+    #convert = client_ip.split(":")
+    #print(convert)
     print(client_ip)
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
     #otro()
-    return "ip " + client_ip + "ip convert " + convert
+    return "ip " + client_ip
 
 
 if __name__ == '__main__':
