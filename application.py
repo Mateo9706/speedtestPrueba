@@ -1,6 +1,6 @@
 import socket
 
-import speedtest
+#import speedtest
 from flask import Flask, request, render_template
 import requests
 from speedtest import Speedtest
@@ -54,24 +54,6 @@ def prueba():
     s.close()
     return clientIP
 
-def SpeedTest():
-    #espera()
-    source = "191.102.192.0"
-    s = speedtest.Speedtest(source_address=source)
-    #s = Speedtest()
-    #s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
-
-    #s.get_servers()
-
-    #s.get_best_server()
-    #print(s.get_servers())
-    s.download()
-    s.upload()
-    res = s.results.dict()
-    print(res["download"], res["upload"], res["ping"])
-    download = round(res["download"] / (10 ** 8), 2)
-    upload = round(res["upload"] / (10 ** 8), 2)
-    return str(download) + " " + str(upload)
 
 #if __name__ == '__main__':
     #prueba()
