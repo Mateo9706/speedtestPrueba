@@ -1,6 +1,6 @@
 Flask==1.1.1
 requests==2.24.0
-sockets==1.0.0
+
 
 
 

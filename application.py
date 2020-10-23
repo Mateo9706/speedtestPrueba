@@ -1,11 +1,11 @@
-import socket
-from flask_socketio import SocketIO
+#import socket
+#from flask_socketio import SocketIO
 from flask import Flask, request, render_template
 import requests
 
-async_mode = None
+#async_mode = None
 app = Flask(__name__)
-socket_ = SocketIO(app, async_mode=async_mode)
+#socket_ = SocketIO(app, async_mode=async_mode)
 
 url = "https://ipinfo.io/"
 url2 = "https://librespeed.org/"
@@ -20,14 +20,14 @@ def hello_world():
     #otro()
     return "ya"+" "+response.text
 
-def otro():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind(('0.0.0.0', 5500))
-    s.listen(1)
+#def otro():
+    #s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    #s.bind(('0.0.0.0', 5500))
+    #s.listen(1)
     # Estas son las variables del cliente
-    conn, addr = s.accept()
-    clientIP = addr  # Aquí se guarda la IP del cliente
-    s.close()
+    #conn, addr = s.accept()
+    #clientIP = addr  # Aquí se guarda la IP del cliente
+    #s.close()
 
 if __name__ == '__main__':
     #socket_.run(app)
