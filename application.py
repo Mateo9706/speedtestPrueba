@@ -1,5 +1,7 @@
 #import socket
+
 import socket
+
 from pprint import pprint
 #import speedtest
 import speedtest
@@ -20,17 +22,21 @@ def hello_world():
 
     print("entra aca")
     endpoint = "/json"
+
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
     #convert = client_ip.split(":")
     #print(convert)
     print(client_ip)
-    result = gt()
+    ifd = get_ip()
+    result = gt(ifd)
+
+    print(ifd)
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
 
 
 
-    return result
+    return ifd
     #otro()
 
     #c=prueba()
@@ -48,11 +54,26 @@ def prueba():
     s.close()
     return 
 """
-def gt():
-    threads = 2
-    #source = "127.0.0.1"
-    s = speedtest.Speedtest()
 
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        # doesn't even have to be reachable
+        s.connect(('192.255.255.255', 1))
+        IP = s.getsockname()[0]
+        print(s.getsockname())
+    except Exception:
+        IP = '127.0.0.1'
+    finally:
+        s.close()
+    return IP
+
+def gt(ipclient):
+    threads = 2
+    server = [11694]
+    source = ipclient
+    s = speedtest.Speedtest(source_address=source)
+    s.get_servers(server)
     # s = Speedtest()
     # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
 
@@ -66,12 +87,18 @@ def gt():
     s.results.share()
     results_dict = s.results.dict()
     pprint(results_dict)
-    print(res["download"], res["upload"], res["ping"])
-    download = round(res["download"] / (10 ** 8), 2)
-    upload = round(res["upload"] / (10 ** 8), 2)
+
+    download = round(res["download"] / (10 ** 6), 2)
+    upload = round(res["upload"] / (10 ** 6), 2)
+    print(download, upload, res["ping"])
+
+
     return results_dict
 
+
+
 if __name__ == '__main__':
+    #hello_world()
     #gt()
     #prueba()
     app.run(host='0.0.0.0')
