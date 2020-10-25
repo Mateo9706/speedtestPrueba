@@ -1,6 +1,7 @@
 #import socket
-
+from pprint import pprint
 #import speedtest
+import speedtest
 from flask import Flask, request, render_template
 import requests
 #from speedtest import Speedtest
@@ -13,7 +14,8 @@ url2 = "https://librespeed.org/"
 
 @app.route('/ip')
 def hello_world():
-
+    gt()
+    """
     print("entra aca")
     endpoint = "/json"
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
@@ -23,24 +25,9 @@ def hello_world():
     response = requests.get(url+convert[0]+endpoint)
     print(response.text)
 
-    """
-    source = "0.0.0.0"
-    s = speedtest.Speedtest(source_address=source)
-    # s = Speedtest()
-    # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
 
-    # s.get_servers()
-
-    # s.get_best_server()
-    # print(s.get_servers())
-    s.download()
-    s.upload()
-    res = s.results.dict()
-    print(res["download"], res["upload"], res["ping"])
-    download = round(res["download"] / (10 ** 8), 2)
-    upload = round(res["upload"] / (10 ** 8), 2)
     """
-    return "yaa" + convert[0]
+    return "yaa"
     #otro()
 
     #c=prueba()
@@ -58,8 +45,28 @@ def prueba():
     s.close()
     return 
 """
+def gt():
+    threads = 1
+    source = "0.0.0.0"
+    s = speedtest.Speedtest(source_address=source)
+    # s = Speedtest()
+    # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
 
+    # s.get_servers()
 
-#if __name__ == '__main__':
+    # s.get_best_server()
+    # print(s.get_servers())
+    s.download(threads=threads)
+    s.upload(threads=threads)
+    res = s.results.dict()
+    s.results.share()
+    results_dict = s.results.dict()
+    pprint(results_dict)
+    print(res["download"], res["upload"], res["ping"])
+    download = round(res["download"] / (10 ** 8), 2)
+    upload = round(res["upload"] / (10 ** 8), 2)
+
+if __name__ == '__main__':
+    #gt()
     #prueba()
-#    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0')
