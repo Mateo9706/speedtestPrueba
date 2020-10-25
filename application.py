@@ -28,7 +28,7 @@ def hello_world():
     #print(convert)
     print(client_ip)
     ifd = get_ip()
-    result = gt(ifd)
+    #result = gt(ifd)
 
     print(ifd)
     #response = requests.get(url+client_ip+endpoint)
@@ -36,13 +36,14 @@ def hello_world():
 
 
 
-    return ""
+    return ifd
 
 
 
 
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    print("entra socket")
     try:
         # doesn't even have to be reachable
         s.connect(('8.8.8.8', 1))
