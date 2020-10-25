@@ -1,7 +1,9 @@
 #import socket
+import socket
 from pprint import pprint
 #import speedtest
 import speedtest
+
 from flask import Flask, request, render_template
 import requests
 #from speedtest import Speedtest
@@ -28,7 +30,7 @@ def hello_world():
 
 
 
-    return client_ip
+    return result
     #otro()
 
     #c=prueba()
@@ -48,8 +50,9 @@ def prueba():
 """
 def gt():
     threads = 2
-    
+    #source = "127.0.0.1"
     s = speedtest.Speedtest()
+
     # s = Speedtest()
     # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
 
