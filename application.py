@@ -14,7 +14,7 @@ url2 = "https://librespeed.org/"
 
 @app.route('/ip')
 def hello_world():
-    gt()
+    result=gt()
     """
     print("entra aca")
     endpoint = "/json"
@@ -27,7 +27,7 @@ def hello_world():
 
 
     """
-    return "yaa"
+    return pprint(result)
     #otro()
 
     #c=prueba()
@@ -65,6 +65,7 @@ def gt():
     print(res["download"], res["upload"], res["ping"])
     download = round(res["download"] / (10 ** 8), 2)
     upload = round(res["upload"] / (10 ** 8), 2)
+    return results_dict
 
 if __name__ == '__main__':
     #gt()
