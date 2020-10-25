@@ -27,7 +27,7 @@ def hello_world():
 
 
 
-    return client_ip + " " + result
+    return dict(client_ip)+result
     #otro()
 
     #c=prueba()
