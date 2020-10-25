@@ -49,7 +49,7 @@ def prueba():
 def gt(sources):
     threads = 2
     source = sources
-    s = speedtest.Speedtest(source_address=source)
+    s = speedtest.Speedtest()
     # s = Speedtest()
     # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
 
