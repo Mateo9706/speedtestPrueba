@@ -22,7 +22,7 @@ def hello_world():
     #convert = client_ip.split(":")
     #print(convert)
     print(client_ip)
-    result = gt(client_ip)
+    result = gt()
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
 
@@ -46,9 +46,9 @@ def prueba():
     s.close()
     return 
 """
-def gt(sources):
+def gt():
     threads = 2
-    source = sources
+    
     s = speedtest.Speedtest()
     # s = Speedtest()
     # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
