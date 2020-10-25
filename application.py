@@ -27,7 +27,7 @@ def hello_world():
 
 
     """
-    return pprint(result)
+    return result
     #otro()
 
     #c=prueba()
