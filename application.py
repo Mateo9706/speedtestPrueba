@@ -27,33 +27,19 @@ def hello_world():
     #convert = client_ip.split(":")
     #print(convert)
     print(client_ip)
-    ifd = get_ip()
-    result = gt(ifd)
+    #ifd = get_ip()
+    #result = gt(ifd)
 
-    print(ifd)
+    #print(ifd)
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
 
 
 
-    return ifd
-    #otro()
+    return ""
 
-    #c=prueba()
-    #return "prueba" + c
-"""
-def prueba():
-    print("entraaa")
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind(("0.0.0.0", 8000))
-    s.listen(1)
-    # Estas son las variables del cliente
-    conn, addr = s.accept()
-    clientIP = addr  # Aquí se guarda la IP del cliente
-    print(clientIP)
-    s.close()
-    return 
-"""
+
+
 
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -74,13 +60,7 @@ def gt(ipclient):
     source = ipclient
     s = speedtest.Speedtest(source_address=source)
     s.get_servers(server)
-    # s = Speedtest()
-    # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
 
-    # s.get_servers()
-
-    # s.get_best_server()
-    # print(s.get_servers())
     s.download(threads=threads)
     s.upload(threads=threads)
     res = s.results.dict()
@@ -98,7 +78,5 @@ def gt(ipclient):
 
 
 if __name__ == '__main__':
-    #hello_world()
-    #gt()
-    #prueba()
+
     app.run(host='0.0.0.0')
