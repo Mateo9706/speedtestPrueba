@@ -15,19 +15,19 @@ url2 = "https://librespeed.org/"
 @app.route('/ip')
 def hello_world():
     result=gt()
-    """
+
     print("entra aca")
     endpoint = "/json"
     client_ip = request.environ.get('HTTP_X_FORWARDED_FOR')
-    convert = client_ip.split(":")
-    print(convert)
+    #convert = client_ip.split(":")
+    #print(convert)
     print(client_ip)
-    response = requests.get(url+convert[0]+endpoint)
-    print(response.text)
+    #response = requests.get(url+client_ip+endpoint)
+    #print(response.text)
 
 
-    """
-    return result
+
+    return client_ip + " " + result
     #otro()
 
     #c=prueba()
@@ -46,9 +46,9 @@ def prueba():
     return 
 """
 def gt():
-    threads = 1
-    source = "0.0.0.0"
-    s = speedtest.Speedtest(source_address=source)
+    threads = 2
+    #source = "0.0.0.0"
+    s = speedtest.Speedtest()
     # s = Speedtest()
     # s.get_best_server(s.set_mini_server("https://www.speedtest.net/es"))
 
