@@ -18,7 +18,7 @@ url2 = "https://librespeed.org/"
 
 @app.route('/ip')
 def hello_world():
-
+    print("entra hello")
 
     print("entra aca")
     endpoint = "/json"
