@@ -50,7 +50,7 @@ def get_ip():
         s.close()
     return IP
 
-def gt(ipclient):
+def gt():
     threads = 2
     server = [11694]
     #source = ipclient
