@@ -27,19 +27,14 @@ def hello_world():
     #convert = client_ip.split(":")
     #print(convert)
     print(client_ip)
-    ifd = get_ip()
-    #result = gt(ifd)
+    #ifd = get_ip()
+    result = gt()
 
-    print(ifd)
+    #print(ifd)
     #response = requests.get(url+client_ip+endpoint)
     #print(response.text)
 
-
-
-    return ifd
-
-
-
+    return result
 
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -58,8 +53,8 @@ def get_ip():
 def gt(ipclient):
     threads = 2
     server = [11694]
-    source = ipclient
-    s = speedtest.Speedtest(source_address=source)
+    #source = ipclient
+    s = speedtest.Speedtest()
     s.get_servers(server)
 
     s.download(threads=threads)
