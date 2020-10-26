@@ -55,7 +55,7 @@ def gt(ipclient):
     server = [11694]
     #source = ipclient
     s = speedtest.Speedtest()
-    s.get_servers(server)
+    #s.get_servers(server)
 
     s.download(threads=threads)
     s.upload(threads=threads)
